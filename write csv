@@ -1,0 +1,21 @@
+import csv
+import os
+ # create list 
+ list_1=[1,2,3,4]
+ list_2=["a","b","c","d"]
+ list_3=["A","B","C","D"]
+ 
+ #Zip all there lists together into tuples
+ combine= zip(list_1,list_2,list_3)
+ for row in combine:
+    print(row)
+  # Save the output file path
+  output_file= os.path.join("output.csv")
+  
+  #open the output file, create a header row, and the write the zipped object to the csv
+  with open(output_file, "w", newline="") as datafile:
+      writer = csv.writer(datafile)
+      writer.writerow(["ID","Name","Title"])
+      writer.writerows(combine)
+      
+      
